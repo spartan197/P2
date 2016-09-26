@@ -1,20 +1,35 @@
 <?php
-$words=$_GET["words"];
-$chk=$_GET['chk'];
-$arr=file('word.txt');
-$x=count($arr);
-$passwd="";
-while($words>0){
-  $y= rand(0,$x);
-  $passwd.=$arr[$y]."- ";
-  $words--;
-}
-$a = array("!", "@", "#", "$", "%", "&", "*", "~");
+    $words=$_GET["words"];
+    $arr=file('word.txt');
+    $x=count($arr);
+    $passwd="";
 
-if ($chk[0]=='char' or $chk[1]=='char'){
-    $passwd.=$a[rand(0,7)];
-}
+    while($words>0){
+      $y= rand(0,$x);
+      $passwd.=$arr[$y];
+      if($words>1)
+          $passwd.="- ";
+      $words--;
+    }
+    
+    $a = array("!", "@", "#", "$", "%", "&", "*", "~");
 
-if ($chk[0]=='num' or $chk[1]=='num'){
-    $passwd.=rand(0,99);
-}
+    if($_GET['chk'] > 1){
+        $chk=$_GET['chk'];
+        if(count($chk)>2){
+            $passwd.="- ";
+            $passwd.=$a[rand(0,7)];
+            $passwd.=rand(0,99);
+        }
+        elseif ($chk[0]=='char'){
+            $passwd.="- ";
+            $passwd.=$a[rand(0,7)];
+        }
+        elseif ($chk[0]=='num'){
+            $passwd.="- ";
+            $passwd.=rand(0,99);
+        }
+        else{
+            $passwd=$passwd;
+        }
+    }
