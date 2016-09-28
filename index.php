@@ -5,12 +5,12 @@ ini_set('display_errors', 1);
 
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Omar's Password Generator</title>
-  <link href="p2.css" rel="stylesheet" type="text/css" />
-	<?php require 'logic.php'; ?>
+	<head>
+		<title>Omar's Password Generator</title>
+	  <link href="p2.css" rel="stylesheet" type="text/css" />
+		<?php require 'logic.php'; ?>
 
-</head>
+	</head>
 	<body>
 
 		<h1>Omar's Password Generator</h1><br>
@@ -24,11 +24,9 @@ ini_set('display_errors', 1);
 			<label>Symbol</label><br>
 	    <input type='checkbox' name='chk[]' id='chk' value="num">
 	    <label>Number</label><br><br>
-
 			<input type='hidden' name='chk[]' id='chk' value="num2" value="checked">
 
 			<input type='submit' value='Generate Password' class='button'>
-
 		</form><br>
 		<h2>Your new password is:</h2>
 		<h3><?php echo $passwd?><h3><br>
