@@ -14,7 +14,7 @@ ini_set('display_errors', 1);
 	<body>
 
 		<h1>Omar's Password Generator</h1><br>
-		<form method='GET' action='index.php'>
+		<form method='POST' action='index.php'>
 			<label>Enter the number of words you would like your password to have</label><br>
 	    <label>(You cannot exceed 9)</label> &nbsp;&nbsp;
 	    <input type='number' name='words' id='words' autofocus min='1' max="9"><br><br>
