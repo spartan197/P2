@@ -1,8 +1,10 @@
 <?php
-    $words=isset($_GET["words"]);
+$passwd=" ";
+//Checking if "words" and "chk" are not null
+if(isset($_POST["words"]) && isset($_POST["chk"])){
+    $words=$_POST["words"];
     $arr=file('word.txt');
-    $x=count($arr);
-    $passwd="";
+    $x=count($arr)-2;
 
     while($words>0){
       $y= rand(0,$x);
@@ -11,11 +13,11 @@
           $passwd.="- ";
       $words--;
     }
-
+    //Array of Special characters/Symbols
     $a = array("!", "@", "#", "$", "%", "&", "*", "~");
-
-    if(isset($_GET['chk']) > 1){
-        $chk=isset($_GET['chk']);
+    //Adding symbold and numbers if the checkboxes are selected
+    if($_POST['chk'] > 1){
+        $chk=$_POST['chk'];
         if(count($chk)>2){
             $passwd.="- ";
             $passwd.=$a[rand(0,7)];
@@ -33,3 +35,4 @@
             $passwd=$passwd;
         }
     }
+}
